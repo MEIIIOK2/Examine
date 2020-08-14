@@ -54,7 +54,7 @@ public class Asteroidspawner : MonoBehaviour
             }
         }
     }
-    private void ReturnAsteroid(GameObject aster)
+    public void ReturnAsteroid(GameObject aster)
     {
         aster.transform.position = transform.position;
         aster.SetActive(false);

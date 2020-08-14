@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private ProjectileData data;
+     
     private void Start()
     {
+        
         GetComponent<SpriteRenderer>().sprite = data.sprite;
     }
     private void FixedUpdate()
@@ -22,7 +25,9 @@ public class Projectile : MonoBehaviour
         if (collision.collider.tag !="Player")
         {
             Destroy(gameObject);
-            Destroy(collision.collider.gameObject);
+            Asteroid.AsteroidOutOfBounds(collision.collider.gameObject);
+
+            Gamemanager.score += 1;
         }
         
     }

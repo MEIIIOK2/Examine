@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: cc830632a3e21564d89e6e026bd47cb8, type: 2}
+  player: {fileID: 0}

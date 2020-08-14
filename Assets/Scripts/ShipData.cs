@@ -8,7 +8,8 @@ public class ShipData : ScriptableObject
  
     public int health;
     public float speed;
+    public float fireRate;
     public Vector2 initialPosition;
     public Sprite mainsprite;
-    
+    public GameObject projectilePrefab;
 }

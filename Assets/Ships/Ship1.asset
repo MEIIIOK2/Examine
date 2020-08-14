@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   speed: 0.05
+  fireRate: 0.5
   initialPosition: {x: 0, y: 0}
   mainsprite: {fileID: 21300004, guid: 8aeb9e233fbb8f14db39770841b78b94, type: 3}
+  projectilePrefab: {fileID: 1557499662569984193, guid: 0b5d240e91970f34e8efe533fcea4ca3,
+    type: 3}

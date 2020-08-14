@@ -38,7 +38,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a2b05c0e8fbae4799bd84311839d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
   data: {fileID: 11400000, guid: c86de83cc6324464db30fcb58524982b, type: 2}
+  health: 0
   joystick: {fileID: 0}
 --- !u!1001 &576237037232361285
 PrefabInstance:
@@ -49,7 +51,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1512782934554904, guid: 401d8aca9e846254890399f66cd7de66, type: 3}
       propertyPath: m_Name
-      value: ship1
+      value: ship prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512782934554904, guid: 401d8aca9e846254890399f66cd7de66, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4193583667243190, guid: 401d8aca9e846254890399f66cd7de66, type: 3}
       propertyPath: m_LocalPosition.x

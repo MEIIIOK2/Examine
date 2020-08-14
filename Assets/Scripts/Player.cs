@@ -2,9 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Text text;
     [SerializeField]
     private ShipData data;
     [SerializeField] private int health;
@@ -22,13 +24,30 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         health = data.health;
+        text.text = $"HP: {health}";
         GetComponent<SpriteRenderer>().sprite = data.mainsprite;
 
         transform.position = data.initialPosition;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x; 
-        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y; 
+        objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
+        StartCoroutine(Shoot());
+    }
+
+    private IEnumerator Shoot()
+    {
+        var _firerate = data.fireRate;
+        if (_firerate==0)
+        {
+            _firerate = 1;
+        }
+        while (true)
+        {
+            Instantiate(data.projectilePrefab, transform.position + Vector3.up/2, Quaternion.identity);
+            yield return new WaitForSeconds(_firerate);
+        }
     }
 
     // Update is called once per frame
@@ -51,7 +70,9 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
         health -= 1;
+        text.text = $"HP: {health}";
         Destroy(collision.collider.gameObject);
         if (health<=0)
         {

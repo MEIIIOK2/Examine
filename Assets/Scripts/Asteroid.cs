@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
+    private void Awake()
+    {
+        
+    }
     [SerializeField] private AsteroidData data;
     public void Init(AsteroidData _data)
     {

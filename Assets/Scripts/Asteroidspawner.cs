@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Asteroidspawner : MonoBehaviour
 {
+    public Asteroid asteroid;
     [SerializeField] private List<AsteroidData> asteroidSettings;
 
     [SerializeField] private int poolLength;
@@ -11,10 +12,15 @@ public class Asteroidspawner : MonoBehaviour
     [SerializeField] private GameObject asteroidPrefab;
 
     [SerializeField] private float spawnRate;
-
-    public static Dictionary<GameObject, Asteroid> Asteroids;
+    
+    public  Dictionary<GameObject, Asteroid> Asteroids;
     private Queue<GameObject> currentAsteroids;
     private float scrborder;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         scrborder = Camera.main.aspect * Camera.main.orthographicSize;

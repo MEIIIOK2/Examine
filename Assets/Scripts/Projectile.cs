@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             Asteroid.AsteroidOutOfBounds(collision.collider.gameObject);
 
-            Gamemanager.score += 1;
+            Gamenotmanager.score += 1;
         }
         
     }

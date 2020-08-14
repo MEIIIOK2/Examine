@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         clPos.x = Mathf.Clamp(clPos.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
         clPos.y = Mathf.Clamp(clPos.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
         transform.position = clPos;
-        scoretext.text = $"Score: {Gamemanager.score}";
+        scoretext.text = $"Score: {Gamenotmanager.score}";
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

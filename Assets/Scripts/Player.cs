@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Text text;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private AudioSource shootaudio;
     [SerializeField] private Text scoretext;
     [SerializeField]
     private ShipData data;
@@ -47,6 +49,7 @@ public class Player : MonoBehaviour
         while (true)
         {
             Instantiate(data.projectilePrefab, transform.position + Vector3.up/2, Quaternion.identity);
+            shootaudio.Play();
             yield return new WaitForSeconds(_firerate);
         }
     }
@@ -72,8 +75,9 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       
+        Instantiate(explosionPrefab, collision.collider.transform.position, Quaternion.identity);
         health -= 1;
+        Gamenotmanager.health = health;
         text.text = $"HP: {health}";
         Asteroid.AsteroidOutOfBounds(collision.collider.gameObject);
         if (health<=0)

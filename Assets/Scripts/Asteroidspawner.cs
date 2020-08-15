@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Asteroidspawner : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Asteroidspawner : MonoBehaviour
     }
     private void Start()
     {
+        
         scrborder = Camera.main.aspect * Camera.main.orthographicSize;
         Asteroids = new Dictionary<GameObject, Asteroid>();
         currentAsteroids = new Queue<GameObject>();
